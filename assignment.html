@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Images</title>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.user-images {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.user-card {
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+.user-card:hover {
+  transform: translateY(-5px);
+  background-color: cyan;
+}
+.user-image {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.user-name {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>User Images</h2>
+    <div class="user-images" id="user-images">
+      <!-- User images will be dynamically loaded here -->
+    </div>
+  </div>
+
+  <script>
+    // Sample JSON data with image URLs and names
+    let userData = [
+    {"image": "https://randomuser.me/api/portraits/men/1.jpg", "name": "Random Name 1"},
+      {"image": "https://randomuser.me/api/portraits/men/2.jpg", "name": "Random Name 2"},
+      {"image": "https://randomuser.me/api/portraits/men/3.jpg", "name": "Random Name 3"},
+      {"image": "https://randomuser.me/api/portraits/men/4.jpg", "name": "Random Name 4"},
+      {"image": "https://randomuser.me/api/portraits/men/5.jpg", "name": "Random Name 5"},
+      {"image": "https://randomuser.me/api/portraits/women/6.jpg", "name": "Random Name 6"},
+      {"image": "https://randomuser.me/api/portraits/women/7.jpg", "name": "Random Name "},
+      {"image": "https://randomuser.me/api/portraits/women/8.jpg", "name": "Random Name "},
+      {"image": "https://randomuser.me/api/portraits/women/9.jpg", "name": "Random Name "},
+      {"image": "https://randomuser.me/api/portraits/women/10.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/11.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/12.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/13.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/14.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/15.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/women/16.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/women/17.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/women/18.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/women/19.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/women/20.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/21.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/22.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/23.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/24.jpg", "name": "Random Name"},
+      {"image": "https://randomuser.me/api/portraits/men/25.jpg", "name": "Random Name"}
+    
+      // Add more user data here...
+    ];
+
+    // Function to load user images and names dynamically
+    function loadUserImages() {
+      let userImagesContainer = document.getElementById('user-images');
+
+      userData.forEach(function(user) {
+        let userCard = document.createElement('div');
+        userCard.className = 'user-card';
+
+        let img = document.createElement('img');
+        img.src = user.image;
+        img.alt = 'User Image';
+        img.className = 'user-image';
+        userCard.appendChild(img);
+
+        let name = document.createElement('div');
+        name.textContent = user.name;
+        name.className = 'user-name';
+        userCard.appendChild(name);
+
+        userImagesContainer.appendChild(userCard);
+      });
+    }
+
+    // Call the function to load user images and names when the page is loaded
+    window.onload = loadUserImages;
+  </script>
+</body>
+</html>
